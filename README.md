@@ -90,31 +90,5 @@ UTS/
 
 ---
 
-## Petunjuk Menjalankan di Komputer Lokal
-
-1. Pastikan Laragon atau XAMPP sudah terpasang dan service Apache serta MySQL sudah menyala.
-2. Tempatkan folder proyek ini di dalam folder web server:
-   - Laragon: `C:\laragon\www\UTS`
-   - XAMPP: `C:\xampp\htdocs\UTS`
-3. Buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
-4. Import file **`nilaimhsw.sql`** ke dalam phpMyAdmin.
-5. Cek file `connect.php` dan pastikan konfigurasi sudah sesuai dengan server lokal Anda:
-   ```php
-   $servername = "localhost";
-   $username   = "root";
-   $password   = "";
-   $dbname     = "db_nilai5a";
-   ```
-6. Buka browser dan jalankan URL berikut:
-   ```text
-   http://localhost/UTS/
-   ```
-   atau
-   ```text
-   http://localhost/UTS/viewdata.php
-   ```
-
----
-
 ## Tautan Repositori GitHub
 - **URL Repositori:** https://github.com/Hikmalniuwbi/UTS_PEMROGRAMAN_WEB
