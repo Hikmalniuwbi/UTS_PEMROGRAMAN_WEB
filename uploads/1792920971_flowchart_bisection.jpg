@@ -1,0 +1,51 @@
+digraph Flowchart {
+	rankdir=TB size=10
+	node [shape=oval]
+	Start [label=Start]
+	node [shape=parallelogram]
+	Input [label="Input: F(x), a, b, N, ε"]
+	node [shape=rectangle]
+	FaFb [label="Hitung F(a), F(b)"]
+	node [shape=diamond]
+	CheckFaFb [label="F(a) * F(b) > 0 ?"]
+	node [shape=parallelogram]
+	NoRoot [label="Tidak ada akar
+pada interval"]
+	node [shape=rectangle]
+	InitIter [label="Set iterasi i = 1"]
+	Midpoint [label="Hitung x = (a+b)/2"]
+	Fx [label="Hitung F(x)"]
+	node [shape=diamond]
+	CheckEps [label="|F(x)| < ε atau |a-b| < ε ?"]
+	node [shape=parallelogram]
+	Result [label="Akar ≈ x"]
+	node [shape=diamond]
+	CheckSign [label="F(a) * F(x) < 0 ?"]
+	node [shape=rectangle]
+	UpdateB [label="b = x"]
+	UpdateA [label="a = x"]
+	IterInc [label="i = i + 1"]
+	node [shape=diamond]
+	CheckN [label="i > N ?"]
+	node [shape=oval]
+	End [label=End]
+	Start -> Input
+	Input -> FaFb
+	FaFb -> CheckFaFb
+	CheckFaFb -> NoRoot [label=Yes]
+	NoRoot -> End
+	CheckFaFb -> InitIter [label=No]
+	InitIter -> Midpoint
+	Midpoint -> Fx
+	Fx -> CheckEps
+	CheckEps -> Result [label=Yes]
+	Result -> End
+	CheckEps -> CheckSign [label=No]
+	CheckSign -> UpdateB [label=Yes]
+	CheckSign -> UpdateA [label=No]
+	UpdateB -> IterInc
+	UpdateA -> IterInc
+	IterInc -> CheckN
+	CheckN -> End [label=Yes]
+	CheckN -> Midpoint [label=No]
+}
